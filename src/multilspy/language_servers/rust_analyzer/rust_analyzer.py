@@ -43,6 +43,12 @@ class RustAnalyzer(LanguageServer):
         """
         Setup runtime dependencies for rust_analyzer.
         """
+        
+        if config.custom_lsp_binary:
+            path = os.path.abspath(config.custom_lsp_binary)
+            assert os.path.exists(path)
+            return path
+
         platform_id = PlatformUtils.get_platform_id()
 
         with open(os.path.join(os.path.dirname(__file__), "runtime_dependencies.json"), "r") as f:
