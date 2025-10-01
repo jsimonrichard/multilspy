@@ -35,7 +35,7 @@ class MultilspyConfig:
     trace_lsp_communication: bool = False
     start_independent_lsp_process: bool = True
     # Only works for Rust Analyzer
-    custom_lsp_binary: Optional[bool] = None
+    custom_lsp_binary: Optional[str] = None
 
     @classmethod
     def from_dict(cls, env: dict):
